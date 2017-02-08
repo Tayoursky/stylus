@@ -6,11 +6,11 @@ var nib         = require('nib');
 //var reload      = browserSync.reload;
 
 gulp.task('styles', function(){
-	gulp.src('style.styl')
+	gulp.src('styl/main.styl')
 		.pipe(stylus({
 			use:[typographic(), nib()]
 		}))
-		.pipe(gulp.dest('./'))
+		.pipe(gulp.dest('css'))
 		//.pipe(reload({stream:true}));
 
 });
@@ -31,9 +31,9 @@ gulp.task('browserSync', function() {
   });
 });*/
 
-gulp.task('watch:styles', function(){
+gulp.task('watch', function(){
 	gulp.watch('**/*.styl', ['styles']);
 	//gulp.watch('index.html', ['html']);
 
 });
-gulp.task('default', ['watch:styles']);//, 'browserSync'
+gulp.task('default', ['watch']);//, 'browserSync'
